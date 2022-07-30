@@ -1,0 +1,51 @@
+$textColor: #4c3228;
+$textColorHover: #ff6600;
+$currentLeftRightPadding: 10%;
+
+.logo{
+    width: 250px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.ulNav{
+    color: $textColor;
+    font-size: 20px;
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .liElement{
+        padding-left: 15px;
+        &:first-child{
+            padding-left: 0px;
+        }
+        &:hover{
+            color: $textColorHover;
+        }
+    }
+}
+
+.navigation{
+    position: fixed;
+    width: 100-($currentLeftRightPadding*2);
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin padding-list {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+.mainData{
+    @include padding-list;
+    padding-top: 100px
+}
+
+.container{
+    @include padding-list;
+}
