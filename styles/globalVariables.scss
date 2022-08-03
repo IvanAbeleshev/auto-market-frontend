@@ -1,0 +1,31 @@
+$mainBackgroung: #EAEAEA;
+$backgroundElement: #fff;
+$textColor: #4c3228;
+$textColorHover: #ff6600;
+$globalBorderRadius: 30px;
+$globalBoxShadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+
+@mixin flexRowCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+@mixin flexColumnCenter {
+    @include flexRowCenter;
+    flex-direction: column;
+}
+
+@mixin padding-list {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+@mixin margin-list {
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }

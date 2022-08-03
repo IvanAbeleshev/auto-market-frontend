@@ -1,0 +1,8 @@
+@import "../globalVariables.scss";
+
+.container{
+    background-color: $backgroundElement;
+    border-radius: $globalBorderRadius;
+    box-shadow: $globalBoxShadow;
+    padding: 10px;
+}

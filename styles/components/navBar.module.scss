@@ -1,23 +1,10 @@
-$mainBackgroung: #EAEAEA;
-$textColor: #4c3228;
-$textColorHover: #ff6600;
 $currentLeftRightPadding: 10%;
+@import "../globalVariables.scss";
 
 .logo{
     width: 250px;
     height: 100px;
     object-fit: contain;
-}
-
-@mixin flexRowCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-}
-
-@mixin flexColumnCenter {
-    @include flexRowCenter;
-    flex-direction: column;
 }
 
 .ulNav{
@@ -44,19 +31,6 @@ $currentLeftRightPadding: 10%;
     justify-content: space-between;
 }
 
-@mixin padding-list {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-
-@mixin margin-list {
-    margin-top: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-
 .mainData{
     @include padding-list;
     padding-top: 100px;
@@ -71,10 +45,10 @@ $currentLeftRightPadding: 10%;
     @include margin-list;
     @include flexRowCenter;
     justify-content: space-around;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    background-color: #fff;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: $globalBorderRadius;
+    border-top-right-radius: $globalBorderRadius;
+    background-color: $backgroundElement;
+    box-shadow: $globalBoxShadow;
 }
 
 .ulNavFooter{

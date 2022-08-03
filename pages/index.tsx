@@ -2,6 +2,7 @@ import axios from "axios";
 import CommonHead from "../components/CommonHead";
 import ProductGroupPanel from "../components/ProductGroupPanel";
 import { ITypeProduct } from "../interfaces/interfaceIncomingData";
+import MostPopularProductList from "../components/MostPopulatProductsList";
 
 interface IPropsHomePage{
   products: ITypeProduct[]
@@ -10,8 +11,13 @@ interface IPropsHomePage{
 const Home = ({products}: IPropsHomePage) => {
   return(
     <article>
+      {
+      //have error on next line???
+      }
+      <CommonHead />
       <ProductGroupPanel products={products}/>
       <h1>this is main page</h1>
+      <MostPopularProductList />
     </article>)
 
     
