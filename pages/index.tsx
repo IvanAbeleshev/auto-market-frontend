@@ -16,8 +16,7 @@ const Home = ({products}: IPropsHomePage) => {
       }
       <CommonHead />
       <ProductGroupPanel products={products}/>
-      <h1>this is main page</h1>
-      <MostPopularProductList />
+      {products.map(element=><MostPopularProductList name={element.name} idGroup={element.id} />)}
     </article>)
 
     

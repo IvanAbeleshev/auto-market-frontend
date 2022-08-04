@@ -1,8 +1,14 @@
 @import "../globalVariables.scss";
 
+.title{
+    padding-left: 20px;
+    color: $textColorSubTitle;
+}
+
 .container{
-    background-color: $backgroundElement;
-    border-radius: $globalBorderRadius;
-    box-shadow: $globalBoxShadow;
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-end;
+    gap: 20px;
+    margin: 0px;
 }

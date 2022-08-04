@@ -1,0 +1,42 @@
+@import "../globalVariables.scss";
+
+.container{
+    box-sizing: border-box;
+    background-color: $backgroundElement;
+    border-radius: $globalBorderRadius;
+    box-shadow: $globalBoxShadow;
+    padding: 25px;
+    .imgBox{
+        position: static;
+        top:-20px;
+        object-fit: cover;
+        width: 100%;
+        height: 350px;
+    }
+
+    .containerFavorite{
+        display: flex;
+        flex-direction: row-reverse;
+        .faIcon{
+            font-size: 20px;
+            &:hover{
+                color: $textColorHover;
+            }
+        }
+    }
+
+    .containerData{
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        .titleBox{
+            display: block;
+            color: $textColor;
+            flex: 3;
+        }
+        .priceBox{
+            color: $textColorHover;
+            flex: 1;
+        }
+    }
+}
