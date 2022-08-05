@@ -1,4 +1,4 @@
-import { ITypeProduct } from "../interfaces/interfaceIncomingData";
+import { ITypeProduct } from "../interfaces/ITypeProduct";
 import styles from "../styles/components/productGroupPanel.module.scss";
 import A from "./A";
 

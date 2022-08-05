@@ -1,0 +1,13 @@
+@import "../globalVariables.scss";
+
+.titleGroup{
+    padding-left: 20px;
+    color: $textColorSubTitle;    
+}
+
+.containerTop{
+    padding: 50px 20px;
+    background-color: $backgroundElement;
+    border-radius: $globalBorderRadius;
+    box-shadow: $globalBoxShadow;
+}
