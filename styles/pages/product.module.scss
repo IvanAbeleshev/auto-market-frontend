@@ -1,0 +1,82 @@
+@import "../globalVariables.scss";
+
+.titleGroup{
+    padding-left: 30px;
+    color: $textColorSubTitle;    
+}
+
+.containerTop{
+    padding: 30px 20px;
+    background-color: $backgroundElement;
+    border-radius: $globalBorderRadius;
+    box-shadow: $globalBoxShadow;
+    .containerNameAndPrice{
+        @include flexRowCenter;
+        justify-content: space-between;
+    }
+}
+
+.nameContainer{
+    flex: 3;
+}
+
+.priceAndDiscount{
+    flex: 1;
+    @include flexRowCenter;
+    .discountContainer{
+        margin-left: 20px;
+        color: $textColorHover;        
+    }
+}
+
+.priceContainer{
+    @include flexColumnCenter;
+    .actualPrice{
+        color: $textColorHover;
+        margin: 0;
+    }
+    .oldPrice{
+        text-align: center;
+        text-decoration: solid line-through $textColorHover;
+        text-decoration-thickness: 2px;
+        margin: 0;
+    }
+    
+}
+
+//bottom part page
+.containerBottom{
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.descriptionBox{
+    flex: 3;
+    background-color: $subBackground;
+    box-shadow: $globalBoxShadow;
+    border-radius: $globalBorderRadius;
+    .descriptionTitleBox{
+        line-height: 80px;
+        background-color: $backgroundElement;    
+        border-radius: $globalBorderRadius;
+        box-shadow: $globalBoxShadow;
+        margin: 0px;
+        padding-left: 20px;
+    }
+
+    .desriptionData{
+        padding: 20px;
+    }
+}
+
+.buttonContainer{
+    flex: 1;
+    padding-left: 20px;
+    .button{
+        @include button;
+        &:hover{
+            @include buttonHover;
+        }
+    }
+}

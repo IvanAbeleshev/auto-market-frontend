@@ -1,10 +1,13 @@
 $mainBackgroung: #EAEAEA;
+$subBackground: #f9f9f9;
 $backgroundElement: #fff;
+$backgroundButtons: #101010;
 $textColor: #4c3228;
 $textColorHover: #ff6600;
 $textColorSubTitle: #838383;
 $globalBorderRadius: 30px;
 $globalBoxShadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+$globalBoxShadowHover: 0px 0px 20px rgba(255, 102, 0, 0.9);
 
 
 @mixin flexRowCenter {
@@ -23,10 +26,28 @@ $globalBoxShadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     padding-bottom: 10px;
     padding-left: 10%;
     padding-right: 10%;
-  }
+}
 
 @mixin margin-list {
     margin-top: 10px;
     margin-left: 10%;
     margin-right: 10%;
-  }
+}
+
+@mixin button {
+  background-color: $backgroundButtons;
+  color: $backgroundElement;
+  border-radius: $globalBorderRadius/3;
+  box-shadow: $globalBoxShadow;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  margin-bottom: 18px;
+}
+
+@mixin buttonHover {
+  color: $textColorHover;
+  cursor: pointer;
+  box-shadow: $globalBoxShadowHover;
+}
