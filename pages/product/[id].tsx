@@ -1,5 +1,6 @@
 import axios from "axios";
 import { NextPageContext } from "next";
+import Button from "../../components/Button";
 import { IProduct } from "../../interfaces/IProduct";
 import styles from "../../styles/pages/product.module.scss";
 
@@ -40,12 +41,12 @@ const Product = ({dataElement}:IPropsProduct) =>{
                 </div>
 
                 <div className={styles.buttonContainer}>
-                    <div className={styles.button}>
-                        Purchase
-                    </div>                    
-                    <div className={styles.button}>
-                        add to basket
-                    </div>
+                    <Button>
+                        Purchase    
+                    </Button>
+                    <Button>
+                        add to basket    
+                    </Button>
                 </div>
             </div>
         </article>

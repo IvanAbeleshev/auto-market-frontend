@@ -1,0 +1,19 @@
+@import "../globalVariables.scss";
+
+.button {
+    background-color: $backgroundButtons;
+    color: $backgroundElement;
+    border-radius: $globalBorderRadius/3;
+    box-shadow: $globalBoxShadow;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-bottom: 18px;
+    &:hover{
+        color: $textColorHover;
+        cursor: pointer;
+        box-shadow: $globalBoxShadowHover;
+    }
+}
+  
