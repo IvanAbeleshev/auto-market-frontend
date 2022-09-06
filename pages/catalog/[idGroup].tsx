@@ -3,10 +3,10 @@ import { GetServerSideProps, GetServerSidePropsContext, NextPageContext} from "n
 import { NextRouter, useRouter } from "next/router";
 import CommonHead from "../../components/CommonHead";
 import ProductList from "../../components/ProductsList";
-import { IProduct } from "../../interfaces/IProduct";
+import { IProduct, IShortProduct } from "../../interfaces/IProduct";
 
 interface IPropsGroupCatalog{
-    allProducts?: IProduct[];
+    allProducts?: IShortProduct[];
     count?: number;
 }
 
@@ -31,18 +31,13 @@ interface extentendNextPageContext extends NextPageContext{
 
 export const getServerSideProps = async({query}: extentendNextPageContext)=>{
     //create product request
-    const responseData = await axios.get(`${process.env.BACKEND_URL}/api/product/`);
-    if(responseData.status === 200){
-        return {
-            props: {
-                count: responseData.data.count,
-                allProducts: responseData.data.rows
-            },
-        }
-    }
-    console.log(responseData.data);
+    const responseData = await axios.get(`${process.env.BACKEND_URL}/api/product/?typeId=${query.idGroup}`);
+    const {count, rows} = responseData.data.data
     return {
-        props: {},
+        props: {
+            count,
+            allProducts: rows
+        },
     }
   }
 

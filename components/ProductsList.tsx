@@ -1,13 +1,13 @@
 import ElementProduct from "./ElementProduct";
 import styles from "../styles/components/ProductList.module.scss";
 import A from "./A";
-import { IProduct } from "../interfaces/IProduct";
+import { IProduct, IShortProduct } from "../interfaces/IProduct";
 
 interface IPropsProductList{
     name: string;
     idGroup: number;
     limit?: boolean;
-    dataElemets?:IProduct[];
+    dataElemets?:IShortProduct[];
 }
 
 const ProductList = ({dataElemets, name, idGroup, limit=false}:IPropsProductList) =>{

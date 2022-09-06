@@ -11,3 +11,15 @@ export interface IProduct{
     updatedAt: Date;
     typeProductId: Number;
 }
+
+export interface IShortProduct{
+    count: number,
+    id: number,
+    guid: string,
+    name: string,
+    fullName: string,
+    actualPrice: number,
+    oldPrice: number,
+    mainNameImg: string,
+    typesProductId: number
+}
