@@ -1,9 +1,9 @@
-import React from "react";
-import A from "./A";
-import styles from "../styles/components/navBar.module.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-regular-svg-icons';
-import {faBasketShopping, faGlobe} from '@fortawesome/free-solid-svg-icons';
+import React from 'react'
+import A from './A'
+import styles from '../styles/components/navBar.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faHeart} from '@fortawesome/free-regular-svg-icons'
+import {faBasketShopping, faGlobe} from '@fortawesome/free-solid-svg-icons'
 
 
 type IPropsNavBar = {
@@ -104,4 +104,4 @@ const NavBar = ({children}:IPropsNavBar) =>{
     )
 }
 
-export default NavBar;
+export default NavBar

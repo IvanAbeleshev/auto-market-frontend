@@ -1,8 +1,8 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 interface IPropsCommonHead{
-    title?: string;
-    aditionalKeywords?: string;
+    title?: string,
+    aditionalKeywords?: string
 }
 
 const CommonHead = ({title, aditionalKeywords}:IPropsCommonHead) =>{
@@ -14,4 +14,4 @@ const CommonHead = ({title, aditionalKeywords}:IPropsCommonHead) =>{
       </Head>)
 }
 
-export default CommonHead;
+export default CommonHead

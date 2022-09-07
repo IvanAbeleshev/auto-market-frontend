@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 interface TypeProps {
-    children: React.ReactNode;
+    children: React.ReactNode,
     href: string
 
 }
@@ -16,4 +16,4 @@ const A = ({children, href}: TypeProps) =>{
     )
 }
 
-export default A;
+export default A

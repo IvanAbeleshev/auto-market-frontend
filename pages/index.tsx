@@ -1,9 +1,9 @@
-import axios from "axios";
-import CommonHead from "../components/CommonHead";
-import ProductGroupPanel from "../components/ProductGroupPanel";
-import { ITypeProduct } from "../interfaces/ITypeProduct";
-import ProductList from "../components/ProductsList";
-import { IShortProduct } from "../interfaces/IProduct";
+import axios from 'axios'
+import CommonHead from '../components/CommonHead'
+import ProductGroupPanel from '../components/ProductGroupPanel'
+import { ITypeProduct } from '../interfaces/ITypeProduct'
+import ProductList from '../components/ProductsList'
+import { IShortProduct } from '../interfaces/IProduct'
 
 interface IPropsHomePage{
   products: ITypeProduct[],

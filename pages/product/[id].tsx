@@ -1,11 +1,11 @@
-import axios from "axios";
-import { NextPageContext } from "next";
-import Button from "../../components/Button";
-import { IProduct } from "../../interfaces/IProduct";
-import styles from "../../styles/pages/product.module.scss";
+import axios from 'axios'
+import { NextPageContext } from 'next'
+import Button from '../../components/Button'
+import { IProduct } from '../../interfaces/IProduct'
+import styles from '../../styles/pages/product.module.scss'
 
 interface IPropsProduct{
-    dataElement: IProduct;
+    dataElement: IProduct
 }
 
 const Product = ({dataElement}:IPropsProduct) =>{
@@ -60,7 +60,7 @@ interface NextPageContextExtend extends NextPageContext{
 }
 
 export const getServerSideProps = async ({query}:NextPageContextExtend) => {
-    const response = await axios.get(`${process.env.BACKEND_URL}/api/product/${query.id}`);
+    const response = await axios.get(`${process.env.BACKEND_URL}/api/product/${query.id}`)
     return{
         props: {
             dataElement: response.data
@@ -68,4 +68,4 @@ export const getServerSideProps = async ({query}:NextPageContextExtend) => {
     }
 }
 
-export default Product;
+export default Product

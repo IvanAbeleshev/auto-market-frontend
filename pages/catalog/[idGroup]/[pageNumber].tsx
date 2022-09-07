@@ -1,17 +1,17 @@
-import axios from "axios";
-import { GetServerSideProps, GetServerSidePropsContext, NextPageContext} from "next";
-import { NextRouter, useRouter } from "next/router";
-import CommonHead from "../../components/CommonHead";
-import ProductList from "../../components/ProductsList";
-import { IProduct, IShortProduct } from "../../interfaces/IProduct";
+import axios from 'axios'
+import { GetServerSideProps, GetServerSidePropsContext, NextPageContext} from 'next'
+import { NextRouter, useRouter } from 'next/router'
+import CommonHead from '../../../components/CommonHead'
+import ProductList from '../../../components/ProductsList'
+import { IProduct, IShortProduct } from '../../../interfaces/IProduct'
 
 interface IPropsGroupCatalog{
-    allProducts?: IShortProduct[];
-    count?: number;
+    allProducts?: IShortProduct[],
+    count?: number
 }
 
 const GroupCatalog = ({count, allProducts}:IPropsGroupCatalog) =>{
-    const dataRoute: NextRouter = useRouter();
+    const dataRoute: NextRouter = useRouter()
     return (
         <>
             {
@@ -25,13 +25,14 @@ const GroupCatalog = ({count, allProducts}:IPropsGroupCatalog) =>{
 
 interface extentendNextPageContext extends NextPageContext{
     query:{
-        idGroup: string
+        idGroup: string,
+        pageNumber: string
     }     
 }
 
 export const getServerSideProps = async({query}: extentendNextPageContext)=>{
     //create product request
-    const responseData = await axios.get(`${process.env.BACKEND_URL}/api/product/?typeId=${query.idGroup}`);
+    const responseData = await axios.get(`${process.env.BACKEND_URL}/api/product/?typeId=${query.idGroup}&page=${query.pageNumber || 1}`)
     const {count, rows} = responseData.data.data
     return {
         props: {
@@ -41,4 +42,4 @@ export const getServerSideProps = async({query}: extentendNextPageContext)=>{
     }
   }
 
-export default GroupCatalog;
+export default GroupCatalog

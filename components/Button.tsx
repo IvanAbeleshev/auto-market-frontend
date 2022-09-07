@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "../styles/components/button.module.scss";
+import React from 'react'
+import styles from '../styles/components/button.module.scss'
 
 interface IPropsButton{
-    children: React.ReactNode;
+    children: React.ReactNode
 }
 
 const Button = ({children}:IPropsButton) =>{
@@ -13,4 +13,4 @@ const Button = ({children}:IPropsButton) =>{
     )
 }
 
-export default Button;
+export default Button

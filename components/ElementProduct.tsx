@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faHeart} from '@fortawesome/free-regular-svg-icons'
 //import {faHeart as faSolidHeart} from '@fortawesome/free-solid-svg-icons';
-import styles from "../styles/components/elementProduct.module.scss";
-import { IProduct, IShortProduct } from '../interfaces/IProduct';
-import A from "./A";
+import styles from '../styles/components/elementProduct.module.scss'
+import { IProduct, IShortProduct } from '../interfaces/IProduct'
+import A from './A'
 
 interface IPropsElementProduct{
-    dataElement: IShortProduct;
+    dataElement: IShortProduct
 }
 
 const ElementProduct = ({dataElement}: IPropsElementProduct) =>{
@@ -26,4 +26,4 @@ const ElementProduct = ({dataElement}: IPropsElementProduct) =>{
 
 }
 
-export default ElementProduct;
+export default ElementProduct
