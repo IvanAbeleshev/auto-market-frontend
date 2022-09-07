@@ -1,0 +1,31 @@
+@import "../globalVariables.scss";
+
+@mixin flexRowCenter {
+    display: flex;
+    justify-content: space-between;
+}
+.containerPanel{
+    margin-top: 20px;
+    @include flexRowCenter;
+    .containerPageLink{
+        @include flexRowCenter;
+    }
+    h2{
+        display: inline-block;
+        @include container;
+        border-radius: 10px;
+        min-width: 35px;
+        text-align: center;
+        margin: 0 10px;
+        &:hover{
+            box-shadow: $globalBoxShadowHover;
+            color: $textColorHover;
+        }
+    }
+    .currentPage{
+        box-shadow: $globalBoxShadowHover;
+        color: $textColorHover;   
+    }
+}
+
+

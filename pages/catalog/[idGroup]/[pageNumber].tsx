@@ -2,6 +2,7 @@ import axios from 'axios'
 import { GetServerSideProps, GetServerSidePropsContext, NextPageContext} from 'next'
 import { NextRouter, useRouter } from 'next/router'
 import CommonHead from '../../../components/CommonHead'
+import PagePanel from '../../../components/PagePanel'
 import ProductList from '../../../components/ProductsList'
 import { IProduct, IShortProduct } from '../../../interfaces/IProduct'
 
@@ -19,6 +20,7 @@ const GroupCatalog = ({count, allProducts}:IPropsGroupCatalog) =>{
             }
             <CommonHead title="Catalog"/>
             <ProductList name={String(dataRoute.query.idGroup)} idGroup ={Number(dataRoute.query.idGroup)} dataElemets={allProducts}/>
+            <PagePanel countElement={Number(count)} countElementsOnPage={12} currentPage={Number(dataRoute.query.pageNumber)} paternLink={`/catalog/${dataRoute.query.idGroup}/`} />
         </>
     )
 }

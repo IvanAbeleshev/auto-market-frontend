@@ -10,7 +10,6 @@ interface IPropsElementProduct{
 }
 
 const ElementProduct = ({dataElement}: IPropsElementProduct) =>{
-    console.log(dataElement)
     return (
     <div className={styles.container}>
         <div className={styles.containerFavorite}>
@@ -18,7 +17,7 @@ const ElementProduct = ({dataElement}: IPropsElementProduct) =>{
         </div>
         <img className={styles.imgBox} src={dataElement.mainNameImg?`${process.env.BACKEND_URL}/${dataElement.mainNameImg}`: '/imageNotFound.png'} />
         <div className={styles.containerData}>
-            <h4 className={styles.titleBox}><A href={`/product/${dataElement.id}`}>{dataElement.fullName}</A></h4>
+            <h4 className={styles.titleBox}><A href={`/product/${dataElement.id}`}>{dataElement.name}</A></h4>
             <h4 className={styles.priceBox}>{dataElement.actualPrice}uah</h4>
         </div>
     </div>
