@@ -10,13 +10,15 @@
     .containerPageLink{
         @include flexRowCenter;
     }
+    div{
+        margin: 0 10px;
+    }
     h2{
         display: inline-block;
         @include container;
         border-radius: 10px;
         min-width: 35px;
         text-align: center;
-        margin: 0 10px;
         &:hover{
             box-shadow: $globalBoxShadowHover;
             color: $textColorHover;

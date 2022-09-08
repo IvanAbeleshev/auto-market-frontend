@@ -1,0 +1,20 @@
+@import "../globalVariables.scss";
+
+.container{
+    background-color: gray;
+    width: 30vw;
+    position: fixed;
+    bottom: 50px;
+    min-height: 50px;
+    max-height: 200px;
+    opacity: 0.6;
+    box-shadow: $globalBoxShadow;
+    border-radius: $globalBorderRadius;
+    transition: opacity 0.5s, min-height 2s;
+    padding:10px;
+    right: 10%;
+    &:hover{
+        opacity: 1;
+        min-height: 200px;
+    }
+}

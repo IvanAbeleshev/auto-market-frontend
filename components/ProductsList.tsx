@@ -14,7 +14,7 @@ const ProductList = ({dataElemets, name, idGroup, limit=false}:IPropsProductList
 
     return(
         <>
-            <h3 className={styles.title}><A href={`/catalog/${idGroup}`}>{name}</A></h3>
+            <h3 className={styles.title}><A href={`/catalog/${idGroup}/1`}>{name}</A></h3>
             <div className={styles.container}>
                 {
                     limit?

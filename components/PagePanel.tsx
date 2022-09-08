@@ -57,7 +57,7 @@ const PagePanel = (props: IPropsPagePanel) =>{
         <div className={styles.containerPanel}>
             {props.currentPage>1?<A href={props.paternLink+String(props.currentPage-1)}><h2>{"<"}</h2></A>:<h2>{"<"}</h2>}
             <div className={styles.containerPageLink}>
-                {arrayResult.map(element=><A href={props.paternLink+String(element.id)}><h2 key={element.id} className={element.current?styles.currentPage:''}>{element.title}</h2></A>)}
+                {arrayResult.map(element=><div><A href={props.paternLink+String(element.id)}><h2 key={element.id} className={element.current?styles.currentPage:''}>{element.title}</h2></A></div>)}
             </div>
             {arrayResult.at(-1)?.id !== props.currentPage?<A href={props.paternLink+String(props.currentPage+1)}><h2>{">"}</h2></A>:<h2>{">"}</h2>}
             
