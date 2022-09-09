@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import A from './A'
 import styles from '../styles/components/navBar.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHeart} from '@fortawesome/free-regular-svg-icons'
 import {faBasketShopping, faGlobe} from '@fortawesome/free-solid-svg-icons'
+import ModalWindow from './ModalWindow'
+import Login from './Login'
 
 
 type IPropsNavBar = {
@@ -11,6 +13,10 @@ type IPropsNavBar = {
 }
 
 const NavBar = ({children}:IPropsNavBar) =>{
+    const [showModalWindow, setShowModalWindow] = useState(false)
+    const handleShowWindow: React.MouseEventHandler = (event) =>{
+        setShowModalWindow(true)
+    }
     return(
         <>
         <header className={styles.container}>
@@ -22,7 +28,7 @@ const NavBar = ({children}:IPropsNavBar) =>{
                 </A>
                 <ul className={styles.ulNav}>
                     <li className={styles.liElement}>
-                        <A href="/catalog">authorization</A>
+                        <div className={styles.cursorLink} onClick={handleShowWindow}>authorization</div>
                     </li>
                     <li className={styles.liElement}>
                         <A href="/favourites"><FontAwesomeIcon icon={faHeart} /></A>
@@ -36,6 +42,7 @@ const NavBar = ({children}:IPropsNavBar) =>{
         </header>
 
         <main className={styles.mainData}>
+            <ModalWindow visible={showModalWindow} setVisible={setShowModalWindow}><Login /></ModalWindow>
             {children}
         </main>
 

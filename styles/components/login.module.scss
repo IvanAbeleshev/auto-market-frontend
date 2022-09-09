@@ -1,0 +1,21 @@
+@import "../globalVariables.scss";
+
+.mainContainer{
+    font-size: 22px;
+    color: $textColor;
+    .form{
+        @include flexColumnCenter;
+    }
+
+    input{
+        margin: 20px 0px;
+        font-size: 22px;
+        background-color: $backgroundEmptyField;
+        height: 45px;
+        border-radius: $globalBorderRadius/2;
+        box-shadow: $globalBoxShadow;
+        &:focus{
+            box-shadow: $globalBoxShadowHover;
+        }
+    }
+}

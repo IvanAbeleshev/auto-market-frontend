@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { GetServerSideProps, GetServerSidePropsContext, NextPageContext} from 'next'
 import { NextRouter, useRouter } from 'next/router'
+import { useState } from 'react'
+import BottomMessage from '../../../components/BottomMessage'
 import CommonHead from '../../../components/CommonHead'
 import PagePanel from '../../../components/PagePanel'
 import ProductList from '../../../components/ProductsList'
-import { IProduct, IShortProduct } from '../../../interfaces/IProduct'
+import { IShortProduct } from '../../../interfaces/IProduct'
 
 interface IPropsGroupCatalog{
     allProducts?: IShortProduct[],
@@ -13,6 +15,7 @@ interface IPropsGroupCatalog{
 
 const GroupCatalog = ({count, allProducts}:IPropsGroupCatalog) =>{
     const dataRoute: NextRouter = useRouter()
+    const [visibleMessage, setVisibleMessage] = useState(false)
     return (
         <>
             {
@@ -21,6 +24,10 @@ const GroupCatalog = ({count, allProducts}:IPropsGroupCatalog) =>{
             <CommonHead title="Catalog"/>
             <ProductList name={String(dataRoute.query.idGroup)} idGroup ={Number(dataRoute.query.idGroup)} dataElemets={allProducts}/>
             <PagePanel countElement={Number(count)} countElementsOnPage={12} currentPage={Number(dataRoute.query.pageNumber)} paternLink={`/catalog/${dataRoute.query.idGroup}/`} />
+            <BottomMessage visible={visibleMessage} setVisible={setVisibleMessage}>
+                <h1>This title message</h1>
+                <h3>we added some product to the basket</h3>
+            </BottomMessage>
         </>
     )
 }
