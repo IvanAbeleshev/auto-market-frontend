@@ -1,21 +1,49 @@
 @import "../globalVariables.scss";
 
 .mainContainer{
+    width: 100%;
     font-size: 22px;
     color: $textColor;
+    .headLine{
+        text-align: center
+    }
     .form{
         @include flexColumnCenter;
     }
-
-    input{
-        margin: 20px 0px;
+    .rowLabelInput{
+        padding: 10px 20px;
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        .label{
+            flex: 2
+        }
+        .input{
+            flex: 5;
+            font-size: 22px;
+            background-color: $backgroundEmptyField;
+            height: 45px;
+            border-radius: $globalBorderRadius/2;
+            box-shadow: $globalBoxShadow;
+            &:focus{
+                box-shadow: $globalBoxShadowHover;
+            }
+            &:valid {
+                background-color: $backgroundElement;
+              }
+        }
+    }
+    
+    .submitButton{
+        flex: 5;
         font-size: 22px;
         background-color: $backgroundEmptyField;
         height: 45px;
         border-radius: $globalBorderRadius/2;
         box-shadow: $globalBoxShadow;
-        &:focus{
+        &:hover{
             box-shadow: $globalBoxShadowHover;
-        }
+        }    
     }
 }
