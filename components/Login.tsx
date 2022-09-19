@@ -6,7 +6,10 @@ import { IUser } from '../interfaces/IUser'
 import { useDispatch } from 'react-redux'
 import { setAuthState } from '../store/authSlice'
 
-const Login = () =>{
+interface IPropsLogin{
+    setVisible?: Function
+}
+const Login = ({setVisible}:IPropsLogin) =>{
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
@@ -27,9 +30,12 @@ const Login = () =>{
         }
         const resultQuery = await axios.post(process.env.BACKEND_URL+'/api/user/login', data)
         if(resultQuery.status ===200){
-            dispatch(setAuthState({...resultQuery.data.data, state: true}))
+            dispatch(setAuthState({...resultQuery.data.data, state: true, user: {email, password}}))
             //escape form modal window
-            
+            if(setVisible){
+                localStorage.setItem('token', resultQuery.data.data.token)
+                setVisible(false)
+            }
         }
         
     }

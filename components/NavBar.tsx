@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import A from './A'
 import styles from '../styles/components/navBar.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,6 +6,10 @@ import {faHeart} from '@fortawesome/free-regular-svg-icons'
 import {faBasketShopping, faGlobe} from '@fortawesome/free-solid-svg-icons'
 import ModalWindow from './ModalWindow'
 import Login from './Login'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppState } from '../store/store'
+import { selectAuthState, setAuthState } from '../store/authSlice'
+import { checkUserByToken } from '../common/requestsToBackEnd'
 
 
 type IPropsNavBar = {
@@ -13,10 +17,36 @@ type IPropsNavBar = {
 }
 
 const NavBar = ({children}:IPropsNavBar) =>{
+
     const [showModalWindow, setShowModalWindow] = useState(false)
     const handleShowWindow: React.MouseEventHandler = (event) =>{
         setShowModalWindow(true)
     }
+
+    const currentAusthState = useSelector(selectAuthState)
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        const token: string | null = localStorage.getItem('token')
+       
+        if(token && !currentAusthState.authState){
+            const checkUser = async()=>{
+                const dataUser = await checkUserByToken(token)    
+                if(dataUser){
+                    const payload = {
+                        state: true,
+                        token: dataUser.token,
+                        user: {
+                            email: dataUser.user.email,
+                            role: dataUser.user.role }
+                        } 
+                    dispatch(setAuthState(payload))
+                }
+            }
+            checkUser()
+        } 
+        }, [])
+
     return(
         <>
         <header className={styles.container}>
@@ -28,7 +58,7 @@ const NavBar = ({children}:IPropsNavBar) =>{
                 </A>
                 <ul className={styles.ulNav}>
                     <li className={styles.liElement}>
-                        <div className={styles.cursorLink} onClick={handleShowWindow}>authorization</div>
+                        {currentAusthState.authState? <A href="/user">{currentAusthState.user?.email}</A> : <div className={styles.cursorLink} onClick={handleShowWindow}>authorization</div>} 
                     </li>
                     <li className={styles.liElement}>
                         <A href="/favourites"><FontAwesomeIcon icon={faHeart} /></A>
@@ -42,7 +72,7 @@ const NavBar = ({children}:IPropsNavBar) =>{
         </header>
 
         <main className={styles.mainData}>
-            <ModalWindow visible={showModalWindow} setVisible={setShowModalWindow}><Login /></ModalWindow>
+            <ModalWindow visible={showModalWindow} setVisible={setShowModalWindow}><Login setVisible={setShowModalWindow} /></ModalWindow>
             {children}
         </main>
 

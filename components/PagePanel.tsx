@@ -52,12 +52,11 @@ const getArrayPages = ({countElement, countElementsOnPage, currentPage}: IPropsP
 
 const PagePanel = (props: IPropsPagePanel) =>{
     const arrayResult = getArrayPages(props)
-    console.log(arrayResult)
     return(
         <div className={styles.containerPanel}>
             {props.currentPage>1?<A href={props.paternLink+String(props.currentPage-1)}><h2>{"<"}</h2></A>:<h2>{"<"}</h2>}
             <div className={styles.containerPageLink}>
-                {arrayResult.map(element=><div><A href={props.paternLink+String(element.id)}><h2 key={element.id} className={element.current?styles.currentPage:''}>{element.title}</h2></A></div>)}
+                {arrayResult.map(element=><div key={element.id}><A href={props.paternLink+String(element.id)}><h2 className={element.current?styles.currentPage:''}>{element.title}</h2></A></div>)}
             </div>
             {arrayResult.at(-1)?.id !== props.currentPage?<A href={props.paternLink+String(props.currentPage+1)}><h2>{">"}</h2></A>:<h2>{">"}</h2>}
             

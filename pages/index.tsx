@@ -18,7 +18,7 @@ const Home = ({products, mostPopular}: IPropsHomePage) => {
       }
       <CommonHead />
       <ProductGroupPanel products={products}/>
-      {products.map(element=><ProductList dataElemets = {mostPopular} name={element.name} idGroup={element.id} limit={true} />)}
+      {products?.map(element=><ProductList dataElemets = {mostPopular.filter((productElement)=>productElement.typesProductId===element.id)} name={element.name} idGroup={element.id} limit={true} />)}
     </article>)
 
     
@@ -38,10 +38,6 @@ export async function getServerSideProps() {
     return {
       props: {products: []},  
     }
-  }
-
-  return {
-    props: {},
   }
 }
 
