@@ -21,7 +21,7 @@ const getArrayPages = ({countElement, countElementsOnPage, currentPage}: IPropsP
         for(let index=0; index<9; index++){
             arrayResult.push({title: String(index+1), id: index+1, current: index+1===currentPage})
         }
-    }else{
+    }else if(countPages>1){
         //before currentpage
         if(currentPage<6){
             for(let index=0; index<7; index++){
@@ -52,15 +52,16 @@ const getArrayPages = ({countElement, countElementsOnPage, currentPage}: IPropsP
 
 const PagePanel = (props: IPropsPagePanel) =>{
     const arrayResult = getArrayPages(props)
-    return(
+    return(arrayResult.length>0?
         <div className={styles.containerPanel}>
             {props.currentPage>1?<A href={props.paternLink+String(props.currentPage-1)}><h2>{"<"}</h2></A>:<h2>{"<"}</h2>}
             <div className={styles.containerPageLink}>
                 {arrayResult.map(element=><div key={element.id}><A href={props.paternLink+String(element.id)}><h2 className={element.current?styles.currentPage:''}>{element.title}</h2></A></div>)}
             </div>
             {arrayResult.at(-1)?.id !== props.currentPage?<A href={props.paternLink+String(props.currentPage+1)}><h2>{">"}</h2></A>:<h2>{">"}</h2>}
-            
         </div>
+        :
+        <></>
     )
 }
 

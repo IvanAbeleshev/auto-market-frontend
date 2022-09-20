@@ -5,6 +5,7 @@ import axios from 'axios'
 import { IUser } from '../interfaces/IUser'
 import { useDispatch } from 'react-redux'
 import { setAuthState } from '../store/authSlice'
+import { setCurrentServerSideToken } from '../common/requestsToBackEnd'
 
 interface IPropsLogin{
     setVisible?: Function

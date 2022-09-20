@@ -11,3 +11,17 @@ export const checkUserByToken = async(token:string) =>{
 
     return undefined
 }
+
+export const addProductToFavorites = async(productId:number, token:string) =>{
+    const queryResult = await axios.post(process.env.BACKEND_URL+'/api/favorites/add', {productId}, getTokenHeaders(token))
+
+    if(queryResult.status === 200){
+        return true
+    }
+
+    return false
+}
+
+export const getTokenHeaders = (token:string) =>{
+    return {headers:{ Authorization: `Bearer ${token}` }}
+}

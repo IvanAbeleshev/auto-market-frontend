@@ -61,7 +61,7 @@ const NavBar = ({children}:IPropsNavBar) =>{
                         {currentAusthState.authState? <A href="/user">{currentAusthState.user?.email}</A> : <div className={styles.cursorLink} onClick={handleShowWindow}>authorization</div>} 
                     </li>
                     <li className={styles.liElement}>
-                        <A href="/favourites"><FontAwesomeIcon icon={faHeart} /></A>
+                        {currentAusthState.authState? <A href="/favorites/1"><FontAwesomeIcon icon={faHeart} /></A>:<div className={styles.cursorLink} onClick={handleShowWindow}><FontAwesomeIcon icon={faHeart} /></div>} 
                     </li>
                     <li className={styles.liElement}>
                         <A href="/basket"><FontAwesomeIcon icon={faBasketShopping} /></A>
