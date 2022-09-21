@@ -31,7 +31,6 @@ export const authSlice = createSlice({
         return state
       },
     },
-    
 })
 
 export const { setAuthState } = authSlice.actions
